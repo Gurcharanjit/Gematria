@@ -4,25 +4,31 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Assignment_5
+namespace Assignment5
 {
     class Program2
     {
-
-        string[] Letters = new string[26] { "a", "b", "c", "d","e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r",
-                                           "s", "t", "u", "v", "w", "x", "y", "z" };
+        string[] Letters = new string[26] { "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z" };
         public static void Main()
         {
+
             Program2 orange = new Program2();
-            Console.WriteLine(orange.Gematria("Universe"));
+
+            Console.WriteLine(orange.Gematria("universe"));
+
+            Console.ReadLine();
         }
+
         public int Gematria(string word)
         {
             int GematriaValue = 0;
+
             for (int i = 0; i < word.Length; i++)
+
             {
                 GematriaValue += LetterValue(word[i].ToString());
             }
+
             return GematriaValue;
         }
 
@@ -32,11 +38,9 @@ namespace Assignment_5
             while (Letters[x] != letter)
             {
                 if (Letters[x++] == letter)
-                {
-                    return x;
-                }
+                    return -1;
             }
-            return -1;
+            return x + 1;
         }
     }
 }
